@@ -3,6 +3,7 @@ import { ActionTypes } from '../actions';
 const defaultState = {
   authenticated: false,
   userObject: { user: '' },
+  error: false,
 };
 const authReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -10,6 +11,7 @@ const authReducer = (state = defaultState, action) => {
       return {
         authenticated: true,
         userObject: action.payload,
+        error: false,
       };
     case ActionTypes.DEAUTH_USER:
       return {
@@ -19,6 +21,8 @@ const authReducer = (state = defaultState, action) => {
     case ActionTypes.AUTH_ERROR:
       return {
         authenticated: false,
+        userObject: { user: '' },
+        error: true,
       };
     default:
       return state;
