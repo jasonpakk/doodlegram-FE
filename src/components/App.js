@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
-
 import Navbar from './nav/navbar';
+import { loginFromStorage } from '../actions';
 
 const App = (props) => {
+  useEffect(() => {
+    props.loginFromStorage();
+  });
+
   return (
     <Router>
       <Navbar />
@@ -13,4 +18,4 @@ const App = (props) => {
   );
 };
 
-export default App;
+export default connect(null, { loginFromStorage })(App);

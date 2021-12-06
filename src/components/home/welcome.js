@@ -20,8 +20,6 @@ const Welcome = (props) => {
           <li><NavLink to="/signup"><button type="button">Sign Up</button></NavLink></li>
         </div>
       )}
-
-      <p>{props.user ? props.user.username : 'None'}</p>
     </div>
   );
 };

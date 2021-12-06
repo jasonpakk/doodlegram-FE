@@ -40,10 +40,26 @@ export function signinUser({ username, password }, history) {
           payload: response.data,
         });
         localStorage.setItem('token', response.data.token);
-        history.push('/');
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        if (history) history.push('/');
       }).catch((error) => {
         dispatch(authError(`Sign In Failed: ${error}`));
       });
+  };
+}
+
+export function loginFromStorage() {
+  return async (dispatch) => {
+    const username = await localStorage.getItem('username');
+    const password = await localStorage.getItem('password');
+    if (username === null || password === null) {
+      dispatch({
+        type: ActionTypes.DEAUTH_USER,
+      });
+    } else {
+      dispatch(signinUser({ username, password }, null));
+    }
   };
 }
 
@@ -53,7 +69,9 @@ export function signupUser({ username, email, password }, history) {
       .then((response) => {
         dispatch({ type: ActionTypes.AUTH_USER });
         localStorage.setItem('token', response.data.token);
-        history.push('/');
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        if (history) history.push('/');
       }).catch((error) => {
         dispatch(authError(`Sign Up Failed: ${error.response.data}`));
       });
@@ -65,6 +83,8 @@ export function signupUser({ username, email, password }, history) {
 export function signoutUser(history) {
   return (dispatch) => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
     dispatch({ type: ActionTypes.DEAUTH_USER });
     history.push('/');
   };
