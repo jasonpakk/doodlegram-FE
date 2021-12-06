@@ -1,15 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import CountText from './countText';
-import Controls from './controls';
+import { helloWorld } from '../../actions';
 
 const Counter = (props) => {
   return (
     <div>
-      <CountText />
-      <Controls />
+      <button type="button" onClick={props.helloWorld}>Press for Message!</button>
+      <p>{props.welcome}</p>
     </div>
   );
 };
 
-export default Counter;
+const mapStateToProps = (reduxState) => ({
+  welcome: reduxState.home.message,
+});
+
+export default withRouter(connect(mapStateToProps, { helloWorld })(Counter));
