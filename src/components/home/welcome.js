@@ -6,12 +6,12 @@ import ParticleBG from './particleBG';
 
 const Welcome = (props) => {
   return (
-    <div id="welcomeScreen">
+    <div className="welcomeScreen">
       <ParticleBG />
-      <div id="welcomeText">
+      <div className="welcomeText">
         <h1>Doodlegram</h1>
         <div className="buttonsRow">
-          <NavLink to="/signin"><button className="loginBtn" type="button">Log In</button></NavLink>
+          <NavLink to="/signin"><button className="loginBtn" type="button">Sign In</button></NavLink>
           <NavLink to="/signup"><button id="signinBtn" type="button">Sign Up</button></NavLink>
         </div>
       </div>
