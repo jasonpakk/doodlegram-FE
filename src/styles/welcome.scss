@@ -4,6 +4,30 @@
   height: 100vh;
   @include flex(column, center);
   padding-top: 0px;
+
+  .welcomeText {
+    position: absolute;
+    @include flex(column, space-evenly);
+  
+    h1 {
+      color: $red-4;
+      background-color: $white;
+    }
+  
+    p {
+      margin: 0;
+    }
+  }
+  
+  .buttonsRow {
+    @include flex(row, space-evenly);
+  }
+  
+  #signinBtn {
+    border-color: $gray-1;
+    background-color: $gray-1;
+    color: #0b090a;
+  }
 }
 
 .particles {
@@ -11,60 +35,8 @@
   height: 100%;
 }
 
-.welcomeText {
-  position: absolute;
-  @include flex(column, space-evenly);
 
-  h1 {
-    color: $red-4;
-    background-color: $white;
-  }
 
-  p {
-    margin: 0;
-  }
-}
 
-.buttonsRow {
-  @include flex(row, space-evenly);
-}
-
-button {
-  width: 10rem;
-  border-radius: 0.3rem;
-  background-color: $red-3;
-  color: $white;
-  font-size: 1.5rem;
-  padding: 0.6rem 1.5rem;
-  transition: all 0.5s;
-  margin: 1rem;
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-3px);
-    transition: all 0.5s;
-  }
-}
-
-#signinBtn {
-  border-color: $gray-1;
-  background-color: $gray-1;
-  color: #0b090a;
-}
-
-input {
-  border-radius: 0.5rem;
-  padding: 0.8rem;
-  margin: 1rem 0rem;
-  font-size: 1rem;
-  transition: all 0.5s;
-  width: 40vw;
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-3px);
-    transition: all 0.5s;
-  }
-}
 
 

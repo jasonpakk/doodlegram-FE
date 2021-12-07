@@ -5,7 +5,7 @@ import { signoutUser } from '../../actions';
 
 const Profile = (props) => {
   return (
-    <section>
+    <section id="profile">
       <button type="button" onClick={() => props.signoutUser(props.history)}>Sign Out</button>
       {props.user ? (
         <div>

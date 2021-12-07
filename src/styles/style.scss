@@ -1,6 +1,7 @@
 @import "./variables.scss";
 @import "./welcome.scss";
 @import "./nav.scss";
+@import "./profile.scss";
 
 body, html {
   font-family: $font-1;
@@ -27,5 +28,37 @@ h1 {
 
 section {
   padding-top: 4rem;
+}
+
+button {
+  width: 10rem;
+  border-radius: 0.3rem;
+  background-color: $red-3;
+  color: $white;
+  font-size: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.5s;
+  margin: 1rem;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    transition: all 0.5s;
+  }
+}
+
+input {
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  margin: 1rem 0rem;
+  font-size: 1rem;
+  transition: all 0.5s;
+  width: 40vw;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    transition: all 0.5s;
+  }
 }
 
