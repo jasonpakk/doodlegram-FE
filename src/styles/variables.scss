@@ -1,0 +1,21 @@
+$black: #0b090a;
+$white: #f8f9fa;
+
+$red-1: #660708;
+$red-2: #a4161a;
+$red-3: #ba181b;
+$red-4: #e5383b;
+
+$gray-1: #b1a7a6;
+$gray-2: #d3d3d3;
+$gray-3: #f5f3f4;
+
+$font-1: 'Readex Pro', sans-serif;
+$font-2: 'Comforter Brush', cursive;
+
+@mixin flex($flexd, $justifyd) {
+  display: flex;
+  flex-direction: $flexd;
+  justify-content: $justifyd;
+  align-items: center;
+}

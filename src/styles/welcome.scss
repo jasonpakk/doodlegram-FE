@@ -1,12 +1,8 @@
 
 .welcomeScreen {
-  background-color: #ffffff;
+  background-color: $white;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  @include flex(column, center);
   padding-top: 0px;
 }
 
@@ -17,21 +13,18 @@
 
 .welcomeText {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flex(column, space-evenly);
 
   h1 {
-    font-family: 'Comforter Brush', cursive;
+    font-family: $font-2;
     font-size: 7rem;
-    color: #e5383b;
-    background-color: white;
+    color: $red-4;
+    background-color: $white;
     margin-bottom: 1rem;
     transition: all 1s ease-out;
 
     &:hover {
-      color: #0b090a;
+      color: $black;
       transition: all 1s ease-in;
     }
   }
@@ -42,17 +35,14 @@
 }
 
 .buttonsRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flex(row, space-evenly);
 }
 
 button {
   width: 10rem;
   border-radius: 0.3rem;
-  background-color: #ba181b;
-  color: #ffffff;
+  background-color: $red-3;
+  color: $white;
   font-size: 1.5rem;
   padding: 0.6rem 1.5rem;
   transition: all 0.5s;
@@ -66,8 +56,8 @@ button {
 }
 
 #signinBtn {
-  border-color: #b1a7a6;
-  background-color: #b1a7a6;
+  border-color: $gray-1;
+  background-color: $gray-1;
   color: #0b090a;
 }
 

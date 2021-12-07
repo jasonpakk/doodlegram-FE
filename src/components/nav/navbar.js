@@ -18,7 +18,7 @@ const Navbar = (props) => {
 
   if (props.auth) {
     return (
-      <nav style={{ background: '#f8f9fa' }}>
+      <nav>
         <div id="navLogo" style={{ color: '#03071e' }}>
           <a href="/" aria-label="home"><img src={logo} alt="logo" /></a>
           <h1>DoodleGram</h1>
