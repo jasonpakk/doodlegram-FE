@@ -26,8 +26,6 @@ const SignIn = (props) => {
 };
 
 const mapStateToProps = (reduxState) => ({
-  welcome: reduxState.home.message,
-  auth: reduxState.auth.authenticated,
   user: reduxState.auth.userObject,
   error: reduxState.auth.error,
 });

@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './nav/navbar';
 import { loginFromStorage } from '../actions';
+import Switch from './nav/switch';
 
 const App = (props) => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const App = (props) => {
   return (
     <Router>
       <Navbar />
+      <Switch />
     </Router>
   );
 };

@@ -1,32 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
-import { signoutUser } from '../../actions';
-
-const signOut = (props) => {
-  props.signoutUser(props.history);
-};
+import { helloWorld } from '../../actions';
+import ParticleBG from './particleBG';
 
 const Welcome = (props) => {
   return (
-    <div>
-      {props.auth ? (
-        <div>
-          <li><button type="button" onClick={() => signOut(props)}>Sign Out</button></li>
+    <div id="welcomeScreen">
+      <ParticleBG />
+      <div id="welcomeText">
+        <h1>Doodlegram</h1>
+        <div className="buttonsRow">
+          <NavLink to="/signin"><button className="loginBtn" type="button">Log In</button></NavLink>
+          <NavLink to="/signup"><button id="signinBtn" type="button">Sign Up</button></NavLink>
         </div>
-      ) : (
-        <div>
-          <li><NavLink to="/signin"><button type="button">Sign In</button></NavLink></li>
-          <li><NavLink to="/signup"><button type="button">Sign Up</button></NavLink></li>
-        </div>
-      )}
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = (reduxState) => ({
-  auth: reduxState.auth.authenticated,
-  user: reduxState.auth.userObject,
+  welcome: reduxState.home.message,
 });
 
-export default withRouter(connect(mapStateToProps, { signoutUser })(Welcome));
+export default withRouter(connect(mapStateToProps, { helloWorld })(Welcome));
