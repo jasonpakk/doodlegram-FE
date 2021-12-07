@@ -9,7 +9,7 @@ const Welcome = (props) => {
     <div className="welcomeScreen">
       <ParticleBG />
       <div className="welcomeText">
-        <h1>Doodlegram</h1>
+        <h1>Doodlegram 🖌️</h1>
         <div className="buttonsRow">
           <NavLink to="/signin"><button className="loginBtn" type="button">Sign In</button></NavLink>
           <NavLink to="/signup"><button id="signinBtn" type="button">Sign Up</button></NavLink>

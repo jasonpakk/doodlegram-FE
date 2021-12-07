@@ -16,17 +16,8 @@
   @include flex(column, space-evenly);
 
   h1 {
-    font-family: $font-2;
-    font-size: 7rem;
     color: $red-4;
     background-color: $white;
-    margin-bottom: 1rem;
-    transition: all 1s ease-out;
-
-    &:hover {
-      color: $black;
-      transition: all 1s ease-in;
-    }
   }
 
   p {

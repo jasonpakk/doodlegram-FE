@@ -1,15 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import ReactLoading from 'react-loading';
-import NavLinks from './navLinks';
 
-import { helloWorld, signoutUser } from '../../actions';
-import logo from '../../assets/image.jpeg';
-
-const signOut = (props) => {
-  props.signoutUser(props.history);
-};
+import { helloWorld } from '../../actions';
 
 const Navbar = (props) => {
   useEffect(() => {
@@ -19,12 +13,9 @@ const Navbar = (props) => {
   if (props.auth) {
     return (
       <nav>
-        <div id="navLogo" style={{ color: '#03071e' }}>
-          <a href="/" aria-label="home"><img src={logo} alt="logo" /></a>
-          <h1>DoodleGram</h1>
-          <button type="button" onClick={() => signOut(props)}>Sign Out</button>
-        </div>
-        <NavLinks />
+        <NavLink to="/posts"><p className="emoji">🖼️</p></NavLink>
+        <h1>DoodleGram 🖌️</h1>
+        <NavLink to="/profile"><p className="emoji">👤</p></NavLink>
       </nav>
     );
   } else if (props.welcome) {
@@ -43,4 +34,4 @@ const mapStateToProps = (reduxState) => ({
   auth: reduxState.auth.authenticated,
 });
 
-export default withRouter(connect(mapStateToProps, { helloWorld, signoutUser })(Navbar));
+export default withRouter(connect(mapStateToProps, { helloWorld })(Navbar));

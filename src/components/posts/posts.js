@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom';
 
 const Posts = (props) => {
   return (
-    <div>
+    <section>
       <p>All posts</p>
-    </div>
+    </section>
   );
 };
 

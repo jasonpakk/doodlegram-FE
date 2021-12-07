@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { signoutUser } from '../../actions';
 
 const Profile = (props) => {
   return (
-    <div>
+    <section>
+      <button type="button" onClick={() => props.signoutUser(props.history)}>Sign Out</button>
       {props.user ? (
         <div>
           <img src={props.user.picture} alt="profile" />
@@ -18,7 +20,7 @@ const Profile = (props) => {
           <p>{props.user.favoriteColor}</p>
         </div>
       ) : <p>Hi</p> }
-    </div>
+    </section>
   );
 };
 
@@ -26,4 +28,4 @@ const mapStateToProps = (reduxState) => ({
   user: reduxState.auth.userObject.user,
 });
 
-export default withRouter(connect(mapStateToProps, null)(Profile));
+export default withRouter(connect(mapStateToProps, { signoutUser })(Profile));

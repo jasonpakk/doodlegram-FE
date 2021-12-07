@@ -1,36 +1,31 @@
+@import "./variables.scss";
+@import "./welcome.scss";
+@import "./nav.scss";
+
 body, html {
   font-family: $font-1;
   background-color: $white;
   height: 100vh;
 }
 
-nav {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  background-color: $red-3;
-
-  img {
-    width: 80px;
-  }
-
-  #navLogo {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.logo {
-  background-image: url('../assets/image.jpeg');
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 .active {
   color: $red-1;
 }
 
-@import "./welcome.scss";
+h1 {
+  font-family: $font-2;
+  font-size: 7rem;
+  color: $white;
+  margin-bottom: 1rem;
+  transition: all 1s ease-out;
+
+  &:hover {
+    color: $black;
+    transition: all 1s ease-in;
+  }
+}
+
+section {
+  padding-top: 4rem;
+}
+
