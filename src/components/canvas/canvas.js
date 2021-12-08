@@ -7,6 +7,7 @@ class Canvas extends Component {
     super(props);
 
     this.state = {
+      dataURL: '',
       changeColor: false,
       color: '#ffc600',
       size: 500,
@@ -75,6 +76,8 @@ class Canvas extends Component {
             lazyRadius={this.state.lazyRadius}
             canvasWidth={this.state.size}
             canvasHeight={this.state.size}
+            hideGrid
+            enablePanAndZoom
             onChange={() => this.setState({ changeColor: false })}
           />
         </div>
@@ -89,12 +92,13 @@ class Canvas extends Component {
           <button
             type="button"
             onClick={() => {
-              console.log(this.saveableCanvas.getSaveData());
+              this.setState({ dataURL: this.saveableCanvas.getDataURL() });
             }}
           >
             <i className="fas fa-arrow-circle-up" />
             Upload
           </button>
+          <img src={this.state.dataURL} alt="hi" />
         </div>
 
       </section>
