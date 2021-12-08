@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import CreateButton from '../canvas/createDoodleBtn';
 
 const Posts = (props) => {
   return (
     <section>
       <p>All posts</p>
-      <div id="createDoodleBtn"><NavLink to="/canvas">🖌️</NavLink></div>
+      <CreateButton />
     </section>
   );
 };

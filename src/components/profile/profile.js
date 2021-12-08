@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { signoutUser } from '../../actions';
+import CreateButton from '../canvas/createDoodleBtn';
 
 const Profile = (props) => {
   return (
@@ -56,6 +57,7 @@ const Profile = (props) => {
           </div>
         </div>
       ) : null }
+      <CreateButton />
     </section>
   );
 };
