@@ -9,6 +9,7 @@ import Profile from '../profile/profile';
 import SignIn from '../home/signin';
 import SignUp from '../home/signup';
 import Posts from '../posts/posts';
+import Canvas from '../canvas/canvas';
 
 const FallBack = (props) => {
   return <div>URL Not Found</div>;
@@ -24,6 +25,7 @@ const Nav = (props) => {
       <Route path="/signup" component={SignUp} />
       <Route path="/profile" component={Profile} />
       <Route path="/posts" component={Posts} />
+      <Route path="/canvas" component={Canvas} />
       <Route component={FallBack} />
     </Switch>
   );
