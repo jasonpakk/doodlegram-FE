@@ -3,11 +3,20 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { updateUser } from '../../actions/user';
+import { uploadImage } from '../../services/s3';
 import nopfp from '../../assets/nopfp.png';
 
-const submit = (update, props) => {
-  props.updateUser(props.user._id, update);
-  props.history.push('/');
+const submit = (update, file, props) => {
+  if (file) {
+    uploadImage(file).then((url) => {
+      props.updateUser(props.user._id, { ...update, picture: url });
+    }).catch((error) => {
+      console.log('error uploading to s3');
+    });
+  } else {
+    props.updateUser(props.user._id, update);
+  }
+  props.history.push('/profile');
 };
 
 const Onboard = (props) => {
@@ -21,6 +30,7 @@ const Onboard = (props) => {
     const [favoriteArtist, setArtist] = useState(props.user.favoriteArtist);
     const [quote, setQuote] = useState(props.user.quote);
     const [preview, setPreview] = useState(props.user.picture);
+    const [file, setFile] = useState();
 
     return (
       <div>
@@ -33,7 +43,17 @@ const Onboard = (props) => {
             <div id="pfp">
               <p>Select a Profile Picture</p>
               <img id="previewImg" alt="preview" src={preview || nopfp} />
-              <input type="file" name="coverImage" accept="image/*" onChange={(e) => setPreview(window.URL.createObjectURL(e.target.files[0]))} />
+              <input type="file"
+                name="coverImage"
+                accept="image/*"
+                onChange={(e) => {
+                  const newFile = e.target.files[0];
+                  if (newFile) {
+                    setFile(newFile);
+                    setPreview(window.URL.createObjectURL(newFile));
+                  }
+                }}
+              />
             </div>
 
             <p>😀 Name 😀</p>
@@ -62,7 +82,7 @@ const Onboard = (props) => {
 
             <p>🎧 Favorite Artist 🎧</p>
             <b>(ex: Bruno Mars)</b>
-            <input type="text" onChange={(e) => setArtist(e.target.value)} defaultValue={favoriteColor} />
+            <input type="text" onChange={(e) => setArtist(e.target.value)} defaultValue={favoriteArtist} />
 
             <p>💬 Favorite Quote 💬</p>
             <b>(ex: &quot;Life is like a box of chocolates&quot; -Forrest Gump) </b>
@@ -72,7 +92,7 @@ const Onboard = (props) => {
             <button type="submit"
               onClick={() => submit({
                 name, gender, favoriteColor, home, birthday, favoriteShoe, favoriteArtist, quote,
-              }, props)}
+              }, file, props)}
             >Save
             </button>
           </div>

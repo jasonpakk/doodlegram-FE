@@ -5,7 +5,7 @@ import { Buffer } from 'buffer';
 import CanvasDraw from 'react-canvas-draw';
 import { ChromePicker } from 'react-color';
 import { createDoodle } from '../../actions/doodle';
-import { uploadImage } from '../../services/s3';
+import { uploadDoodle } from '../../services/s3';
 
 class Canvas extends Component {
   constructor(props) {
@@ -105,7 +105,7 @@ class Canvas extends Component {
                 type: 'image/png',
               };
 
-              uploadImage(imageData).then((url) => {
+              uploadDoodle(imageData).then((url) => {
                 const imageUrl = { url };
                 this.props.createDoodle(imageUrl, this.props.history);
               }).catch((error) => {
