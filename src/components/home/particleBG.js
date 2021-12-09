@@ -16,7 +16,7 @@ const ParticleParams = {
       speed: 2,
       out_mode: 'out',
     },
-    color: ['#0b090a', '#161a1d', '#660708', '#a4161a', '#ba181b', '#e5383b', '#b1a7a6', '#d3d3d3', '#f5f3f4', '#ffffff'],
+    color: ['#f94144', '#f3722c', '#f8961e', '#f9844a', '#f9c74f', '#90be6d', '#43aa8b', '#4d908e', '#577590', '#277da1'],
   },
   interactivity: {
     events: {

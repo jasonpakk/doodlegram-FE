@@ -25,6 +25,7 @@
       height: 400px;
       border-radius: 1rem;
       margin: 2rem;
+      box-shadow: 0px 3px 10px $shadow;
     }
 
     .doodleImg {
@@ -33,6 +34,7 @@
       height: 250px;
       border-radius: 1rem;
       margin: 1rem;
+      box-shadow: 0px 3px 10px $shadow;
     }
 
     .doodleInfo {
@@ -43,6 +45,7 @@
       border-radius: 1.5rem;
       @include flex(row, space-evenly);
       transition: all 0.5s;
+      box-shadow: 0px 3px 10px $shadow;
 
       .profilePic {
         width: 50px;
@@ -79,6 +82,7 @@
   border-radius: 50%;
   @include flex(row, center);
   transition: all 0.5s;
+  box-shadow: 0px 3px 10px $shadow;
 
   &:hover {
     cursor: pointer;

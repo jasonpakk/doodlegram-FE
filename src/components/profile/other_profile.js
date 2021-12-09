@@ -25,7 +25,7 @@ const OtherProfile = (props) => {
 
               <div id="doodleRow">
                 <h3>{props.user.name}</h3>
-                <p>🖼️ <b>{props.doodles.length}</b> Doodles 🖼️</p>
+                <p>🖼️ <b>{props.doodles.length}</b> Doodle{props.doodles.length === 1 ? null : 's'} 🖼️</p>
               </div>
 
               <div className="textRow">
@@ -41,7 +41,7 @@ const OtherProfile = (props) => {
               </div>
 
               <div className="textRow">
-                <p>{props.user.quote}</p>
+                <p className="textQuote">{props.user.quote}</p>
               </div>
             </div>
           </div>

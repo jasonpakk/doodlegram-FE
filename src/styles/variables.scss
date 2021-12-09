@@ -13,6 +13,8 @@ $gray-3: #f5f3f4;
 $font-1: 'Readex Pro', sans-serif;
 $font-2: 'Comforter Brush', cursive;
 
+$shadow: rgba(0,0,0,0.8);
+
 @mixin flex($flexd, $justifyd) {
   display: flex;
   flex-direction: $flexd;

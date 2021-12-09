@@ -46,7 +46,7 @@ const Profile = (props) => {
               </div>
 
               <div className="textRow">
-                <p>{props.user.quote}</p>
+                <p className="textQuote">{props.user.quote}</p>
               </div>
             </div>
           </div>
