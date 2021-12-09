@@ -89,13 +89,28 @@
       @include flex(row, center);
       flex-wrap: wrap;
 
-      .doodle {
-        width: 250px;
-        height: 250px;
+      .doodleSquare {
+        @include flex(column, space-evenly);
+        background-color: #343a40;
+        width: 290px;
+        height: 320px;
         border-radius: 1rem;
         margin: 2rem;
-        border-style: solid;
-      }
+
+        .doodle {
+          background-color: $white;
+          width: 250px;
+          height: 250px;
+          border-radius: 1rem;
+          margin: 1rem;
+        }
+
+        .doodleDate {
+          color: $gray-1;
+          margin: 0rem;
+          margin-bottom: 0.5rem;
+        }
+      }  
     }
 
     

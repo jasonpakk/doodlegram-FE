@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 import { signoutUser } from '../../actions';
 import { fetchUserDoodles } from '../../actions/user';
 import CreateButton from '../canvas/createDoodleBtn';
@@ -27,7 +28,7 @@ const Profile = (props) => {
 
               <div id="doodleRow">
                 <h3>{props.user.name}</h3>
-                <p>🖼️ <b>100</b> Doodles 🖼️</p>
+                <p>🖼️ <b>{props.doodles.length}</b> Doodles 🖼️</p>
               </div>
 
               <div className="textRow">
@@ -53,11 +54,14 @@ const Profile = (props) => {
             <div id="profileDoodles">
               {props.doodles ? props.doodles.map((doodle) => {
                 return (
-                  <img key={doodle._id}
-                    className="doodle"
-                    src={doodle.doodle}
-                    alt="doodle_picture"
-                  />
+                  <div className="doodleSquare">
+                    <img key={doodle._id}
+                      className="doodle"
+                      src={doodle.doodle}
+                      alt="doodle_picture"
+                    />
+                    <p className="doodleDate">{moment(doodle.createdAt).calendar()}</p>
+                  </div>
                 );
               }) : <p>No Doodles Yet. Create One Now!</p>}
             </div>
