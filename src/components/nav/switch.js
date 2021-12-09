@@ -8,7 +8,7 @@ import Welcome from '../home/welcome';
 import Profile from '../profile/profile';
 import SignIn from '../home/signin';
 import SignUp from '../home/signup';
-import Onboard from '../home/onboard';
+import EditProfile from '../profile/edit_profile';
 import Doodles from '../doodles/doodles';
 import Canvas from '../canvas/canvas';
 import OtherProfile from '../profile/other_profile';
@@ -25,7 +25,7 @@ const Nav = (props) => {
       </Route>
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/profile/edit" component={Onboard} />
+      <Route path="/profile/edit" component={EditProfile} />
       <Route exact path="/profile/:id" component={OtherProfile} />
       <Route path="/profile" component={Profile} />
       <Route path="/doodles" component={Doodles} />

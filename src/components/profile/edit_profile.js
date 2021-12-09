@@ -19,7 +19,7 @@ const submit = (update, file, props) => {
   props.history.push('/profile');
 };
 
-const Onboard = (props) => {
+const EditProfile = (props) => {
   if (props.user) {
     const [name, setName] = useState(props.user.name);
     const [gender, setGender] = useState(props.user.gender);
@@ -34,7 +34,7 @@ const Onboard = (props) => {
 
     return (
       <div>
-        <div className="onboardScreen">
+        <div className="editScreen">
           <div className="welcomeText">
             <h1>Edit Profile</h1>
             <p>Please fill out the following fields to complete your Doodlegram profile!</p>
@@ -112,4 +112,4 @@ const mapStateToProps = (reduxState) => ({
   user: reduxState.auth.userObject.user,
 });
 
-export default withRouter(connect(mapStateToProps, { updateUser })(Onboard));
+export default withRouter(connect(mapStateToProps, { updateUser })(EditProfile));
