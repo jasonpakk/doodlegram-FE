@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
-import ReactLoading from 'react-loading';
 
 import { helloWorld } from '../../actions';
 
@@ -18,14 +17,8 @@ const Navbar = (props) => {
         <NavLink to="/profile"><p className="emoji">👤</p></NavLink>
       </nav>
     );
-  } else if (props.welcome) {
-    return null;
   } else {
-    return (
-      <div>
-        <ReactLoading type="spinningBubbles" color="white" height="20%" width="20%" />
-      </div>
-    );
+    return null;
   }
 };
 
