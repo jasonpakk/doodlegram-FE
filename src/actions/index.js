@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// export const ROOT_URL = 'https://pak-socialmedia.herokuapp.com/api';
+// export const ROOT_URL = 'https://pak-doodlegram.herokuapp.com/api';
 export const ROOT_URL = 'http://localhost:9090/api';
 
 // keys for actiontypes

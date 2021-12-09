@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { Buffer } from 'buffer';
 import CanvasDraw from 'react-canvas-draw';
 import { ChromePicker } from 'react-color';
+import { createDoodle } from '../../actions/doodle';
+import { uploadImage } from '../../services/s3';
 
 class Canvas extends Component {
   constructor(props) {
@@ -92,7 +97,21 @@ class Canvas extends Component {
           <button
             type="button"
             onClick={() => {
-              this.setState({ dataURL: this.saveableCanvas.getDataURL() });
+              const result = this.saveableCanvas.getDataURL();
+              const buffer = Buffer.from(result.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+              const key = new Date().getTime();
+              const imageData = {
+                buffer,
+                name: `${this.props.user.username}-post-${key}`,
+                type: 'image/png',
+              };
+
+              uploadImage(imageData).then((url) => {
+                const imageUrl = { url };
+                this.props.createDoodle(imageUrl, this.props.history);
+              }).catch((error) => {
+                console.log('error');
+              });
             }}
           >
             <i className="fas fa-arrow-circle-up" />
@@ -106,4 +125,11 @@ class Canvas extends Component {
   }
 }
 
-export default Canvas;
+// connects particular parts of redux state to this components props
+const mapStateToProps = (state) => (
+  {
+    user: state.auth.userObject.user,
+  }
+);
+
+export default withRouter(connect(mapStateToProps, { createDoodle })(Canvas));
