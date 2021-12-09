@@ -76,18 +76,28 @@
   right: 0px;
   margin: 2rem;
   background-color: $gray-2;
-  font-size: 2.5rem;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  @include flex(row, center);
+  @include flex(column, center);
   transition: all 0.5s;
   box-shadow: 0px 3px 10px $shadow;
 
   &:hover {
     cursor: pointer;
+    color: $white;
+    background-color: $red-4;
     transform: translateY(-3px);
     transition: all 0.5s;
+  }
+
+  b {
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
   }
 }
 
