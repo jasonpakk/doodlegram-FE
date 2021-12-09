@@ -12,7 +12,6 @@ class Canvas extends Component {
     super(props);
 
     this.state = {
-      dataURL: '',
       changeColor: false,
       color: '#ffc600',
       size: 500,
@@ -117,7 +116,6 @@ class Canvas extends Component {
             <i className="fas fa-arrow-circle-up" />
             Upload
           </button>
-          <img src={this.state.dataURL} alt="hi" />
         </div>
 
       </section>
