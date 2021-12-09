@@ -5,8 +5,7 @@ import ParticleBG from './particleBG';
 import { signupUser } from '../../actions';
 
 const submit = (email, username, password, props) => {
-  props.signupUser({ username, email, password });
-  props.history.push('/profile/edit');
+  props.signupUser({ username, email, password }, props.history);
 };
 
 const SignUp = (props) => {
@@ -33,6 +32,7 @@ const SignUp = (props) => {
 };
 
 const mapStateToProps = (reduxState) => ({
+  auth: reduxState.auth.authenticated,
   user: reduxState.auth.userObject,
   error: reduxState.auth.error,
 });

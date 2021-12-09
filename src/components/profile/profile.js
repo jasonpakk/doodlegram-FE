@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import { signoutUser } from '../../actions';
 import { fetchUserDoodles } from '../../actions/user';
+import { deleteDoodle } from '../../actions/doodle';
 import CreateButton from '../canvas/createDoodleBtn';
 
 import nopfp from '../../assets/nopfp.png';
@@ -13,11 +14,12 @@ const Profile = (props) => {
     if (props.user) props.fetchUserDoodles(props.user._id);
   }, [props.user]);
 
+  const [editing, setEdit] = useState(false);
+
   return (
     <section id="profile">
       {props.user ? (
         <div>
-
           <div id="userInfo">
             <img className="profilePic" src={props.user.picture ? props.user.picture : nopfp} alt="profile" />
 
@@ -48,11 +50,21 @@ const Profile = (props) => {
               <div className="textRow">
                 <p className="textQuote">{props.user.quote}</p>
               </div>
+
             </div>
           </div>
 
           <div id="userDoodles">
             <h2>Doodles</h2>
+            {props.doodles.length > 0 ? (
+              <button id="editDoodlesBtn"
+                type="button"
+                onClick={() => setEdit(!editing)}
+              >
+                {editing ? 'Save' : 'Edit Doodles'}
+              </button>
+            ) : null}
+
             <div id="profileDoodles">
               {props.doodles.length > 0 ? props.doodles.map((doodle) => {
                 return (
@@ -62,11 +74,26 @@ const Profile = (props) => {
                       src={doodle.doodle}
                       alt="doodle_picture"
                     />
-                    <p className="doodleDate">{moment(doodle.createdAt).calendar()}</p>
+                    <div className="dateRow">
+                      <p className="doodleDate">{moment(doodle.createdAt).calendar()}</p>
+                      {editing
+                        ? (
+                          <i role="button"
+                            tabIndex={0}
+                            aria-label="delete"
+                            className="far fa-trash-alt"
+                            onClick={() => {
+                              props.deleteDoodle(doodle._id);
+                              props.fetchUserDoodles(props.user._id);
+                            }}
+                          />
+                        ) : null}
+                    </div>
                   </div>
                 );
               }) : <p>No Doodles Yet. Create One Now!</p>}
             </div>
+
           </div>
         </div>
       ) : null }
@@ -80,4 +107,4 @@ const mapStateToProps = (reduxState) => ({
   doodles: reduxState.user.userDoodles,
 });
 
-export default withRouter(connect(mapStateToProps, { signoutUser, fetchUserDoodles })(Profile));
+export default withRouter(connect(mapStateToProps, { deleteDoodle, signoutUser, fetchUserDoodles })(Profile));

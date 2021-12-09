@@ -2,7 +2,6 @@ import { DoodleActionTypes } from '../actions/doodle';
 
 const defaultState = {
   allDoodles: [],
-  currentDoodle: {},
 };
 const doodleReducer = (state = defaultState, action) => {
   switch (action.type) {

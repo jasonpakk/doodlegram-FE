@@ -7,6 +7,7 @@ export const ROOT_URL = 'http://localhost:9090/api/doodles';
 export const DoodleActionTypes = {
   CREATE_DOODLE: 'CREATE_DOODLE',
   FETCH_DOODLES: 'FETCH_DOODLES',
+  DELETE_DOODLE: 'DELETE_DOODLE',
 };
 
 export function createDoodle(post, history) {
@@ -26,6 +27,16 @@ export function fetchDoodles() {
   return (dispatch) => {
     axios.get(`${ROOT_URL}`).then((response) => {
       dispatch({ type: 'FETCH_DOODLES', payload: response.data });
+    }).catch((error) => {
+      dispatch({ type: 'ERROR', payload: error });
+    });
+  };
+}
+
+export function deleteDoodle(id) {
+  return (dispatch) => {
+    axios.delete(`${ROOT_URL}/${id}`).then((response) => {
+      dispatch({ type: 'DELETE_DOODLE', payload: response.data });
     }).catch((error) => {
       dispatch({ type: 'ERROR', payload: error });
     });
