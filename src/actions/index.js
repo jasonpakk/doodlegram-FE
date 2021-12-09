@@ -63,15 +63,14 @@ export function loginFromStorage() {
   };
 }
 
-export function signupUser({ username, email, password }, history) {
+export function signupUser({ username, email, password }) {
   return (dispatch) => {
     axios.post(`${ROOT_URL}/users/signup`, { username, email, password })
       .then((response) => {
-        dispatch({ type: ActionTypes.AUTH_USER });
+        dispatch({ type: ActionTypes.AUTH_USER, payload: response.data });
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
-        if (history) history.push('/');
       }).catch((error) => {
         dispatch(authError(`Sign Up Failed: ${error.response.data}`));
       });

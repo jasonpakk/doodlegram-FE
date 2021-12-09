@@ -8,7 +8,7 @@ import CreateButton from '../canvas/createDoodleBtn';
 
 const Profile = (props) => {
   useEffect(() => {
-    props.fetchUserDoodles(props.user._id);
+    if (props.user) props.fetchUserDoodles(props.user._id);
   }, [props.user]);
 
   return (

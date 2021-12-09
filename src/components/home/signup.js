@@ -5,7 +5,8 @@ import ParticleBG from './particleBG';
 import { signupUser } from '../../actions';
 
 const submit = (email, username, password, props) => {
-  props.signupUser({ username, email, password }, props.history);
+  props.signupUser({ username, email, password });
+  props.history.push('/onboard');
 };
 
 const SignUp = (props) => {

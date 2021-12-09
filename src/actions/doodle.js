@@ -4,7 +4,7 @@ import axios from 'axios';
 export const ROOT_URL = 'http://localhost:9090/api/doodles';
 
 // keys for actiontypes
-export const ActionTypes = {
+export const DoodleActionTypes = {
   CREATE_DOODLE: 'CREATE_DOODLE',
   FETCH_DOODLES: 'FETCH_DOODLES',
 };

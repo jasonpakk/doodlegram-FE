@@ -37,6 +37,7 @@ button {
   border-radius: 0.3rem;
   background-color: $red-3;
   color: $white;
+  font-family: $font-1;
   font-size: 1.5rem;
   padding: 0.6rem 1.5rem;
   transition: all 0.5s;
@@ -53,6 +54,7 @@ input {
   border-radius: 0.5rem;
   padding: 0.8rem;
   margin: 1rem 0rem;
+  font-family: $font-1;
   font-size: 1rem;
   transition: all 0.5s;
   width: 40vw;

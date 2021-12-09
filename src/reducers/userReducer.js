@@ -1,4 +1,4 @@
-import { ActionTypes } from '../actions/user';
+import { UserActionTypes } from '../actions/user';
 
 const defaultState = {
   userDoodles: [],
@@ -6,12 +6,12 @@ const defaultState = {
 };
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case ActionTypes.FETCH_USER_DOODLES:
+    case UserActionTypes.FETCH_USER_DOODLES:
       return {
         ...state,
         userDoodles: action.payload,
       };
-    case ActionTypes.FETCH_USER:
+    case UserActionTypes.FETCH_USER:
       return {
         ...state,
         user: action.payload,

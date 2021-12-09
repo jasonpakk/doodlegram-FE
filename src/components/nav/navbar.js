@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
-import { helloWorld } from '../../actions';
+// import { helloWorld } from '../../actions';
 
 const Navbar = (props) => {
+  /*
   useEffect(() => {
     props.helloWorld();
   });
+  */
 
   if (props.auth) {
     return (
@@ -18,8 +20,6 @@ const Navbar = (props) => {
         <NavLink to="/profile"><p className="emoji">👤</p></NavLink>
       </nav>
     );
-  } else if (props.welcome) {
-    return null;
   } else {
     return (
       <div>
@@ -30,8 +30,8 @@ const Navbar = (props) => {
 };
 
 const mapStateToProps = (reduxState) => ({
-  welcome: reduxState.home.message,
+  // welcome: reduxState.home.message,
   auth: reduxState.auth.authenticated,
 });
 
-export default withRouter(connect(mapStateToProps, { helloWorld })(Navbar));
+export default withRouter(connect(mapStateToProps, { })(Navbar));

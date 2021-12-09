@@ -4,9 +4,10 @@ import axios from 'axios';
 export const ROOT_URL = 'http://localhost:9090/api/users';
 
 // keys for actiontypes
-export const ActionTypes = {
+export const UserActionTypes = {
   FETCH_USER_DOODLES: 'FETCH_USER_DOODLES',
   FETCH_USER: 'FETCH_USER',
+  UPDATE_USER: 'UPDATE_USER',
 };
 
 export function fetchUserDoodles(id) {
@@ -25,6 +26,19 @@ export function fetchUser(id) {
       dispatch({ type: 'FETCH_USER', payload: response.data });
     }).catch((error) => {
       dispatch({ type: 'ERROR', payload: error });
+    });
+  };
+}
+
+export function updateUser(id, params) {
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/${id}`, params).then((response) => {
+      dispatch({
+        type: 'UPDATE_USER',
+        payload: response.data,
+      });
+    }).catch((e) => {
+      console.log(`Error updating user: ${e}`);
     });
   };
 }
