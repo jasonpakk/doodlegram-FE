@@ -10,8 +10,6 @@ const authReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ActionTypes.AUTH_USER:
     case UserActionTypes.UPDATE_USER:
-      console.log(action.type);
-      console.log(action.payload);
       return {
         authenticated: true,
         userObject: action.payload,

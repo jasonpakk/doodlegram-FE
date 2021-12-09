@@ -6,6 +6,8 @@ import { signoutUser } from '../../actions';
 import { fetchUserDoodles } from '../../actions/user';
 import CreateButton from '../canvas/createDoodleBtn';
 
+import nopfp from '../../assets/nopfp.png';
+
 const Profile = (props) => {
   useEffect(() => {
     if (props.user) props.fetchUserDoodles(props.user._id);
@@ -17,7 +19,7 @@ const Profile = (props) => {
         <div>
 
           <div id="userInfo">
-            <img className="profilePic" src={props.user.picture} alt="profile" />
+            <img className="profilePic" src={props.user.picture ? props.user.picture : nopfp} alt="profile" />
 
             <div id="userText">
               <div id="titleRow">
@@ -27,20 +29,20 @@ const Profile = (props) => {
               </div>
 
               <div id="doodleRow">
-                <h3>{props.user.name}</h3>
+                <h3>{props.user.name ? props.user.name : props.user.username}</h3>
                 <p>🖼️ <b>{props.doodles.length}</b> Doodles 🖼️</p>
               </div>
 
               <div className="textRow">
-                <p style={{ backgroundColor: '#f8961e' }}>👤 {props.user.gender}</p>
-                <p style={{ backgroundColor: '#43aa8b', color: 'white' }}>🎨 {props.user.favoriteColor}</p>
-                <p style={{ backgroundColor: '#f9c74f' }}>📍 {props.user.home}</p>
+                {props.user.gender ? (<p style={{ backgroundColor: '#f8961e' }}>👤 {props.user.gender}</p>) : null}
+                {props.user.favoriteColor ? (<p style={{ backgroundColor: '#43aa8b', color: 'white' }}>🎨 {props.user.favoriteColor}</p>) : null}
+                {props.user.home ? (<p style={{ backgroundColor: '#f9c74f' }}>📍 {props.user.home}</p>) : null}
               </div>
 
               <div className="textRow">
-                <p style={{ backgroundColor: '#f94144', color: 'white' }}>🎂 {props.user.birthday}</p>
-                <p style={{ backgroundColor: '#90be6d' }}>👟 {props.user.favoriteShoe}</p>
-                <p style={{ backgroundColor: '#277da1', color: 'white' }}>🎧 {props.user.favoriteArtist}</p>
+                {props.user.birthday ? (<p style={{ backgroundColor: '#f94144', color: 'white' }}>🎂 {props.user.birthday}</p>) : null}
+                {props.user.favoriteShoe ? (<p style={{ backgroundColor: '#90be6d' }}>👟 {props.user.favoriteShoe}</p>) : null}
+                {props.user.favoriteArtist ? (<p style={{ backgroundColor: '#277da1', color: 'white' }}>🎧 {props.user.favoriteArtist}</p>) : null}
               </div>
 
               <div className="textRow">
