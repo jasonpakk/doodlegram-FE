@@ -32,7 +32,7 @@ export function fetchUser(id) {
 
 export function updateUser(id, params) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/${id}`, params).then((response) => {
+    axios.post(`${ROOT_URL}/${id}`, params, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       dispatch({
         type: 'UPDATE_USER',
         payload: response.data,

@@ -3,10 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 const CreateButton = (props) => {
   return (
-    <div className="createDoodleBtn">
-      <NavLink to="/canvas"><b>🖌️</b></NavLink>
-      <p>Doodle!</p>
-    </div>
+    <NavLink to="/canvas">
+      <div className="createDoodleBtn">
+        <b>🖌️</b>
+        <p>Doodle!</p>
+      </div>
+    </NavLink>
   );
 };
 

@@ -57,7 +57,9 @@ const OtherProfile = (props) => {
                       src={doodle.doodle}
                       alt="doodle_picture"
                     />
-                    <p className="doodleDate">{moment(doodle.createdAt).calendar()}</p>
+                    <div className="dateRow">
+                      <p className="doodleDate">{moment(doodle.createdAt).calendar()}</p>
+                    </div>
                   </div>
                 );
               }) : <p>No Doodles Yet. Create One Now!</p>}

@@ -14,25 +14,36 @@ import Canvas from '../canvas/canvas';
 import OtherProfile from '../profile/other_profile';
 
 const FallBack = (props) => {
-  return <div>URL Not Found</div>;
+  return <Redirect to="/signin" />;
 };
 
 const Nav = (props) => {
-  return (
-    <Switch>
-      <Route exact path="/" component={Welcome}>
-        {props.auth ? <Redirect to="/doodles" /> : null}
-      </Route>
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/profile/edit" component={EditProfile} />
-      <Route exact path="/profile/:id" component={OtherProfile} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/doodles" component={Doodles} />
-      <Route path="/canvas" component={Canvas} />
-      <Route component={FallBack} />
-    </Switch>
-  );
+  if (props.auth) {
+    return (
+      <Switch>
+        <Route exact path="/" component={Welcome}>
+          <Redirect to="/doodles" />
+        </Route>
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/profile/edit" component={EditProfile} />
+        <Route exact path="/profile/:id" component={OtherProfile} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/doodles" component={Doodles} />
+        <Route path="/canvas" component={Canvas} />
+        <Route component={FallBack} />
+      </Switch>
+    );
+  } else {
+    return (
+      <Switch>
+        <Route exact path="/" component={Welcome} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route component={FallBack} />
+      </Switch>
+    );
+  }
 };
 
 const mapStateToProps = (reduxState) => ({

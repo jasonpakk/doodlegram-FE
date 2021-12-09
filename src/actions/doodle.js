@@ -35,7 +35,7 @@ export function fetchDoodles() {
 
 export function deleteDoodle(id) {
   return (dispatch) => {
-    axios.delete(`${ROOT_URL}/${id}`).then((response) => {
+    axios.delete(`${ROOT_URL}/${id}`, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       dispatch({ type: 'DELETE_DOODLE', payload: response.data });
     }).catch((error) => {
       dispatch({ type: 'ERROR', payload: error });
