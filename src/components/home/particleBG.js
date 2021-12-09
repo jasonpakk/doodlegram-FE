@@ -7,7 +7,7 @@ const ParticleParams = {
       enable: false,
     },
     number: {
-      value: 50,
+      value: 100,
     },
     size: {
       value: 8,
