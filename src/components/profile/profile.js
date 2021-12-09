@@ -24,7 +24,7 @@ const Profile = (props) => {
             <div id="userText">
               <div id="titleRow">
                 <h2>{props.user.username}</h2>
-                <button type="button" onClick={() => console.log('hi')}>Edit Profile</button>
+                <button type="button" onClick={() => props.history.push('/profile/edit')}>Edit Profile</button>
                 <button type="button" onClick={() => props.signoutUser(props.history)}>Log Out</button>
               </div>
 

@@ -25,7 +25,7 @@ const Nav = (props) => {
       </Route>
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/onboard" component={Onboard} />
+      <Route path="/profile/edit" component={Onboard} />
       <Route exact path="/profile/:id" component={OtherProfile} />
       <Route path="/profile" component={Profile} />
       <Route path="/doodles" component={Doodles} />

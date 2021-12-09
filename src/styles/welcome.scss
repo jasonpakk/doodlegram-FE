@@ -87,16 +87,9 @@
     margin: 1rem 0rem;
   }
 
-  #preview {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: $gray-1;
-  }
-
   #previewImg {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
   }

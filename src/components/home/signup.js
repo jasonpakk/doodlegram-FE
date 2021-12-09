@@ -6,7 +6,7 @@ import { signupUser } from '../../actions';
 
 const submit = (email, username, password, props) => {
   props.signupUser({ username, email, password });
-  props.history.push('/onboard');
+  props.history.push('/profile/edit');
 };
 
 const SignUp = (props) => {
