@@ -45,7 +45,7 @@ const Profile = (props) => {
 
           <div id="userDoodles">
             <h2>Doodles</h2>
-            <div className="doodleGallery">
+            <div id="profileDoodles">
               <div className="doodle" />
               <div className="doodle" />
               <div className="doodle" />

@@ -8,7 +8,7 @@ import Welcome from '../home/welcome';
 import Profile from '../profile/profile';
 import SignIn from '../home/signin';
 import SignUp from '../home/signup';
-import Posts from '../posts/posts';
+import Doodles from '../doodles/doodles';
 import Canvas from '../canvas/canvas';
 
 const FallBack = (props) => {
@@ -19,12 +19,12 @@ const Nav = (props) => {
   return (
     <Switch>
       <Route exact path="/" component={Welcome}>
-        {props.auth ? <Redirect to="/posts" /> : null}
+        {props.auth ? <Redirect to="/doodles" /> : null}
       </Route>
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/profile" component={Profile} />
-      <Route path="/posts" component={Posts} />
+      <Route path="/doodles" component={Doodles} />
       <Route path="/canvas" component={Canvas} />
       <Route component={FallBack} />
     </Switch>

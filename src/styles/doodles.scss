@@ -1,3 +1,33 @@
+#doodleHome {
+  @include flex(column, center);
+  h2 {
+    padding-top: 3rem;
+    color: $red-4;
+    font-family: $font-2;
+    font-size: 5rem;
+    transition: all 1s ease-out;
+    margin: 0;
+
+    &:hover {
+      color: $black;
+      transition: all 1s ease-in;
+    }
+  }
+
+  #doodleGallery {
+    @include flex(row, space-evenly);
+    flex-wrap: wrap;
+  
+    .doodleSquare {
+      border-style: solid;
+      width: 300px;
+      height: 300px;
+      border-radius: 1rem;
+      margin: 2rem;
+    }
+  }
+}
+
 .createDoodleBtn {
   position: fixed;
   bottom: 0px;
@@ -17,3 +47,6 @@
     transition: all 0.5s;
   }
 }
+
+
+

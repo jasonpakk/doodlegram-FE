@@ -85,7 +85,7 @@
       }
     }
 
-    .doodleGallery {
+    #profileDoodles {
       @include flex(row, center);
       flex-wrap: wrap;
     }

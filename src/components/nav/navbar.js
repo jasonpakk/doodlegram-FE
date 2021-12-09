@@ -13,7 +13,7 @@ const Navbar = (props) => {
   if (props.auth) {
     return (
       <nav>
-        <NavLink to="/posts"><p className="emoji">🖼️</p></NavLink>
+        <NavLink to="/doodles"><p className="emoji">🖼️</p></NavLink>
         <h1>DoodleGram 🖌️</h1>
         <NavLink to="/profile"><p className="emoji">👤</p></NavLink>
       </nav>

@@ -25,7 +25,7 @@ export function createDoodle(post, history) {
 export function fetchDoodles() {
   return (dispatch) => {
     axios.get(`${ROOT_URL}`).then((response) => {
-      dispatch({ type: 'FETCH_POSTS', payload: response.data });
+      dispatch({ type: 'FETCH_DOODLES', payload: response.data });
     }).catch((error) => {
       dispatch({ type: 'ERROR', payload: error });
     });

@@ -1,4 +1,4 @@
-import { ActionTypes } from '../actions';
+import { ActionTypes } from '../actions/doodle';
 
 const defaultState = {
   allDoodles: [],
@@ -6,7 +6,7 @@ const defaultState = {
 };
 const doodleReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case ActionTypes.FETCH_POSTS:
+    case ActionTypes.FETCH_DOODLES:
       return {
         ...state,
         allDoodles: action.payload,
