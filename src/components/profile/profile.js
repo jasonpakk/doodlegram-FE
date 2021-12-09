@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { signoutUser } from '../../actions';
+import { fetchUserDoodles } from '../../actions/user';
 import CreateButton from '../canvas/createDoodleBtn';
 
 const Profile = (props) => {
+  useEffect(() => {
+    props.fetchUserDoodles(props.user._id);
+  }, [props.user]);
+
   return (
     <section id="profile">
       {props.user ? (
@@ -46,13 +51,15 @@ const Profile = (props) => {
           <div id="userDoodles">
             <h2>Doodles</h2>
             <div id="profileDoodles">
-              <div className="doodle" />
-              <div className="doodle" />
-              <div className="doodle" />
-              <div className="doodle" />
-              <div className="doodle" />
-              <div className="doodle" />
-              <div className="doodle" />
+              {props.doodles ? props.doodles.map((doodle) => {
+                return (
+                  <img key={doodle._id}
+                    className="doodle"
+                    src={doodle.doodle}
+                    alt="doodle_picture"
+                  />
+                );
+              }) : <p>No Doodles Yet. Create One Now!</p>}
             </div>
           </div>
         </div>
@@ -64,6 +71,7 @@ const Profile = (props) => {
 
 const mapStateToProps = (reduxState) => ({
   user: reduxState.auth.userObject.user,
+  doodles: reduxState.user.userDoodles,
 });
 
-export default withRouter(connect(mapStateToProps, { signoutUser })(Profile));
+export default withRouter(connect(mapStateToProps, { signoutUser, fetchUserDoodles })(Profile));
