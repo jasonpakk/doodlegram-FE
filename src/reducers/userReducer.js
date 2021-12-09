@@ -2,6 +2,7 @@ import { ActionTypes } from '../actions/user';
 
 const defaultState = {
   userDoodles: [],
+  user: {},
 };
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -9,6 +10,11 @@ const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         userDoodles: action.payload,
+      };
+    case ActionTypes.FETCH_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

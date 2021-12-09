@@ -6,12 +6,23 @@ export const ROOT_URL = 'http://localhost:9090/api/users';
 // keys for actiontypes
 export const ActionTypes = {
   FETCH_USER_DOODLES: 'FETCH_USER_DOODLES',
+  FETCH_USER: 'FETCH_USER',
 };
 
 export function fetchUserDoodles(id) {
   return (dispatch) => {
     axios.get(`${ROOT_URL}/doodles/${id}`).then((response) => {
       dispatch({ type: 'FETCH_USER_DOODLES', payload: response.data });
+    }).catch((error) => {
+      dispatch({ type: 'ERROR', payload: error });
+    });
+  };
+}
+
+export function fetchUser(id) {
+  return (dispatch) => {
+    axios.get(`${ROOT_URL}/${id}`).then((response) => {
+      dispatch({ type: 'FETCH_USER', payload: response.data });
     }).catch((error) => {
       dispatch({ type: 'ERROR', payload: error });
     });

@@ -2,14 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-import { signoutUser } from '../../actions';
-import { fetchUserDoodles } from '../../actions/user';
-import CreateButton from '../canvas/createDoodleBtn';
+import { fetchUser, fetchUserDoodles } from '../../actions/user';
 
-const Profile = (props) => {
+const OtherProfile = (props) => {
   useEffect(() => {
-    props.fetchUserDoodles(props.user._id);
-  }, [props.user]);
+    props.fetchUser(props.match.params.id);
+    props.fetchUserDoodles(props.match.params.id);
+  }, []);
 
   return (
     <section id="profile">
@@ -22,8 +21,6 @@ const Profile = (props) => {
             <div id="userText">
               <div id="titleRow">
                 <h2>{props.user.username}</h2>
-                <button type="button" onClick={() => console.log('hi')}>Edit Profile</button>
-                <button type="button" onClick={() => props.signoutUser(props.history)}>Log Out</button>
               </div>
 
               <div id="doodleRow">
@@ -68,14 +65,13 @@ const Profile = (props) => {
           </div>
         </div>
       ) : null }
-      <CreateButton />
     </section>
   );
 };
 
 const mapStateToProps = (reduxState) => ({
-  user: reduxState.auth.userObject.user,
   doodles: reduxState.user.userDoodles,
+  user: reduxState.user.user,
 });
 
-export default withRouter(connect(mapStateToProps, { signoutUser, fetchUserDoodles })(Profile));
+export default withRouter(connect(mapStateToProps, { fetchUser, fetchUserDoodles })(OtherProfile));

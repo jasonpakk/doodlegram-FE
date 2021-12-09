@@ -10,6 +10,7 @@ import SignIn from '../home/signin';
 import SignUp from '../home/signup';
 import Doodles from '../doodles/doodles';
 import Canvas from '../canvas/canvas';
+import OtherProfile from '../profile/other_profile';
 
 const FallBack = (props) => {
   return <div>URL Not Found</div>;
@@ -23,6 +24,7 @@ const Nav = (props) => {
       </Route>
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
+      <Route exact path="/profile/:id" component={OtherProfile} />
       <Route path="/profile" component={Profile} />
       <Route path="/doodles" component={Doodles} />
       <Route path="/canvas" component={Canvas} />
