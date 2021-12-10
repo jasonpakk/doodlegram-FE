@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f245ef54-38bb-4ceb-a75e-8a4250f8ee26/deploy-status)](https://app.netlify.com/sites/doodlegram/deploys)
 
-Front-end code for a social media website where users can share doodles with other users. Developed using React.js. The back-end API developed for this project can be found [here](https://github.com/JY2452/doodlegram-BE).
+**Front-end code** for a social media website where users can share doodles with other users. Developed using React.js. The **back-end API** developed for this project can be found [here](https://github.com/JY2452/doodlegram-BE).
 
 [Visit the website here!](https://doodlegram.netlify.app/)
 
