@@ -8,6 +8,9 @@
 
 ![](src/assets/demo.gif)
 
-# References
+## Notes
+To start off the webpage, I have added sample users obtained from a provided JSON dataset that can be found [here](https://github.com/dali-lab/dali-challenges/blob/master/data/DALI_Data.json).
+
+## References
 * [Frontend Starter](https://github.com/JY2452/starterpack-react/) as Template Code
 * [Uploading to S3](https://cs52.me/assignments/sa/s3-upload/) Tutorial from Dartmouth's CS 52 (Full Stack Web Development) Course.
