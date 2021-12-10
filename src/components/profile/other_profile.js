@@ -24,7 +24,7 @@ const OtherProfile = (props) => {
               </div>
 
               <div id="doodleRow">
-                <h3>{props.user.name}</h3>
+                <h3>{props.user.name ? props.user.name : props.user.username}</h3>
                 <p>🖼️ <b>{props.doodles.length}</b> Doodle{props.doodles.length === 1 ? null : 's'} 🖼️</p>
               </div>
 
