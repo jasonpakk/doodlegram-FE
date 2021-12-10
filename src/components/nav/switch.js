@@ -14,7 +14,11 @@ import Canvas from '../canvas/canvas';
 import OtherProfile from '../profile/other_profile';
 
 const FallBack = (props) => {
-  return <Redirect to="/signin" />;
+  return <Redirect to="/" />;
+};
+
+const FallBackAuth = (props) => {
+  return <Redirect to="/doodles" />;
 };
 
 const Nav = (props) => {
@@ -31,7 +35,7 @@ const Nav = (props) => {
         <Route path="/profile" component={Profile} />
         <Route path="/doodles" component={Doodles} />
         <Route path="/canvas" component={Canvas} />
-        <Route component={FallBack} />
+        <Route component={FallBackAuth} />
       </Switch>
     );
   } else {
