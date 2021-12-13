@@ -68,6 +68,29 @@
       margin-bottom: 0.5rem;
     }
   }
+
+  @media only screen and (max-width:570px) {
+    h2 {
+      font-size: 15vw;
+    }
+
+    #doodleGallery {
+      .doodleSquare {
+        width: 80vw;
+        height: fit-content;
+        margin: 1rem;
+      }
+
+      .doodleImg {
+        width: 60vw;
+        height: 60vw;
+      }
+
+      .doodleInfo {
+        margin: 0.5rem;
+      }
+    }
+  }
 }
 
 .createDoodleBtn {
@@ -98,6 +121,18 @@
   p {
     margin: 0;
     font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width:570px) {
+  .createDoodleBtn {
+    width: 75px;
+    height: 75px;
+    margin: 1rem;
+
+    b {
+      font-size: 1.5rem;
+    }
   }
 }
 

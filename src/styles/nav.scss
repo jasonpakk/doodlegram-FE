@@ -22,4 +22,11 @@ nav {
   img {
     width: 80px;
   }
+
+  @media only screen and (max-width:570px) {
+    h1, .emoji {
+      font-size: 9vw;
+    }
+  }
 }
+

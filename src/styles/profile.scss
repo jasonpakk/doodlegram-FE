@@ -146,6 +146,47 @@
       }  
     }
   }
+
+  @media only screen and (max-width:570px) {
+    #titleRow, #doodleRow {
+      @include flex(column, center);
+
+      button {
+        margin: 0.5rem 0rem;
+      }
+
+      h2, h3, p {
+        margin: 0.8rem 0rem;
+      }
+
+      h3 {
+        margin-top: 1.5rem;
+      }
+    }
+
+    #userText {
+      align-items: center;
+    }
+
+    .textRow {
+      justify-content: center;
+    }
+
+    #userDoodles {
+      #profileDoodles {
+        .doodleSquare {
+          width: 80vw;
+          height: fit-content;
+          margin: 1rem;
+  
+          .doodle {
+            width: 60vw;
+            height: 60vw;
+          }
+        }
+      }
+    }
+  }
 }
 
 .editScreen {
@@ -186,11 +227,27 @@
     transition: all 0.5s;
     width: 40vw;
     border: solid black 0.13rem;
+    box-shadow: 0px 3px 5px $shadow;
 
     &:hover {
       cursor: pointer;
       transform: translateY(-3px);
       transition: all 0.5s;
+    }
+  }
+
+  @media only screen and (max-width:570px) {
+    .welcomeText p {
+      font-size: 5vw;
+    }
+
+    b {
+      text-align: center;
+    }
+
+    textarea {
+      width: 60vw;
+      height: 10vh;
     }
   }
 }
