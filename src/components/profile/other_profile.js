@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import { fetchUser, fetchUserDoodles } from '../../actions/user';
 
+import nopfp from '../../assets/nopfp.png';
+
 const OtherProfile = (props) => {
   useEffect(() => {
     props.fetchUser(props.match.params.id);
@@ -16,7 +18,7 @@ const OtherProfile = (props) => {
         <div>
 
           <div id="userInfo">
-            <img className="profilePic" src={props.user.picture} alt="profile" />
+            <img className="profilePic" src={props.user.picture ? props.user.picture : nopfp} alt="profile" />
 
             <div id="userText">
               <div id="titleRow">

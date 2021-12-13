@@ -5,6 +5,8 @@ import moment from 'moment';
 import CreateButton from '../canvas/createDoodleBtn';
 import { fetchDoodles } from '../../actions/doodle';
 
+import nopfp from '../../assets/nopfp.png';
+
 const Doodles = (props) => {
   useEffect(() => {
     props.fetchDoodles();
@@ -24,7 +26,7 @@ const Doodles = (props) => {
               />
               <NavLink to={`/profile/${doodle.author._id}`}>
                 <div className="doodleInfo">
-                  <img className="profilePic" src={doodle.author.picture} alt="profile" />
+                  <img className="profilePic" src={doodle.author.picture || nopfp} alt="profile" />
                   <p>{doodle.author.username}</p>
                 </div>
               </NavLink>
