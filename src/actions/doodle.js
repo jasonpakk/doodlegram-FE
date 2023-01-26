@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const ROOT_URL = 'https://pak-doodlegram.herokuapp.com/api/doodles';
+export const ROOT_URL = 'https://doodlegram-be.onrender.com/api/doodles';
 // export const ROOT_URL = 'http://localhost:9090/api/doodles';
 
 // keys for actiontypes
