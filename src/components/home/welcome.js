@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { helloWorld } from '../../actions';
-import ParticleBG from './particleBG';
+// import ParticleBG from './particleBG';
 
 const Welcome = (props) => {
   return (
     <div className="welcomeScreen">
-      <ParticleBG />
       <div className="welcomeText">
         <h1>Doodlegram 🖌️</h1>
         <div className="buttonsRow">

@@ -1,6 +1,6 @@
 import React from 'react';
-import Particles from 'react-particles-js';
-
+// import Particles from 'react-particles-js';
+/*
 const ParticleParams = {
   particles: {
     line_linked: {
@@ -27,11 +27,15 @@ const ParticleParams = {
     },
   },
 };
+*/
 
 const ParticleBG = () => {
+  return null;
+  /*
   return (
     <Particles className="particles" params={ParticleParams} />
   );
+  */
 };
 
 export default ParticleBG;

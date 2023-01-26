@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
-import ParticleBG from './particleBG';
+// import ParticleBG from './particleBG';
 import { signinUser } from '../../actions';
 
 const submit = (username, password, props) => {
@@ -15,7 +15,6 @@ const SignIn = (props) => {
   return (
     <div>
       <div className="welcomeScreen">
-        <ParticleBG />
         <div className="welcomeText">
           <h1>Sign In</h1>
           <NavLink to="/signup"><p>Need to Create an Account?</p></NavLink>
